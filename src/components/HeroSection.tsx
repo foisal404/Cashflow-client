@@ -5,7 +5,7 @@ import Button from "./Button";
 
 function HeroTitle() {
   return (
-    <h1 className="text-8xl font-bold pt-10 text-start">
+    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold pt-10 text-start">
       Managing finances has <br /> never been easier
     </h1>
   );
@@ -13,20 +13,14 @@ function HeroTitle() {
 
 function HeroSection() {
   return (
-    <div className="bg-lime-300 h-[90vh] px-10">
+    <div className="bg-lime-300 h-[90vh] px-10 overflow-y-hidden">
       <HeroTitle />
-      <div className="flex justify-end">
-        <div className="flex gap-5 mt-10 h-fit relative top-64">
+      <div className="flex flex-col-reverse md:flex md:flex-row justify-end">
+        <div className="flex gap-5 mt-10 h-fit relative lg:top-64">
           <Button>Get Start</Button>
           <Button>Learn More</Button>
         </div>
-        <Image
-          src="/bgcon.png"
-          alt="Hero Image"
-          width={600}
-          height={300}
-          className="mt-10"
-        />
+        <Image src="/bgcon.png" alt="Hero Image" width={600} height={300} />
       </div>
     </div>
   );
