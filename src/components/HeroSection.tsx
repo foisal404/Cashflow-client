@@ -13,14 +13,14 @@ function HeroTitle() {
 
 function HeroSection() {
   return (
-    <div className="bg-lime-300 h-[90vh] px-10 overflow-y-hidden">
+    <div className="bg-lime-300 h-[90vh] px-10">
       <HeroTitle />
       <div className="flex flex-col-reverse md:flex md:flex-row justify-end">
-        <div className="flex gap-5 mt-10 h-fit relative lg:top-64">
+        <div className="flex gap-5 mt-10 h-fit relative lg:top-64 justify-center">
           <Button>Get Start</Button>
           <Button>Learn More</Button>
         </div>
-        <Image src="/bgcon.png" alt="Hero Image" width={600} height={300} />
+        <Image src="/bgcon.png" alt="Hero Image" width={600} height={400} />
       </div>
     </div>
   );

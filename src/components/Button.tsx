@@ -10,7 +10,7 @@ function Button({ children, onClick = () => {}, className = "" }: ButtonProps) {
   return (
     <div
       onClick={onClick}
-      className={`${className} bg-cyan-300 text-gray-900 font-semibold px-10 p-2 rounded-md text-lg hover:bg-cyan-200 transition-colors cursor-pointer    `}
+      className={`${className} bg-cyan-300 text-gray-900 font-semibold px-7 md:px-10 p-2 rounded-md text-sm lg:text-lg hover:bg-cyan-200 transition-colors cursor-pointer`}
     >
       {children}
     </div>
