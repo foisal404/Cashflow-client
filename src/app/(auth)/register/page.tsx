@@ -1,6 +1,9 @@
 "use client";
 
+import axios from "axios";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function RegisterPage() {
   const [form, setForm] = useState({
@@ -9,18 +12,39 @@ export default function RegisterPage() {
     password: "",
     confirmPassword: "",
   });
+  const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (form.password !== form.confirmPassword) {
-      alert("Passwords do not match!");
+      toast("Passwords do not match!");
       return;
     }
-    console.log("Register data:", form);
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/register`,
+        {
+          name: form.name,
+          email: form.email,
+          password: form.password,
+        }
+      );
+
+      toast("Registration successful!", { type: "success", theme: "dark" });
+      router.push("/login");
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error)) {
+        toast(error.response?.data?.message || "Registration failed", {
+          type: "error",
+        });
+      } else {
+        toast("An unexpected error occurred", { type: "error", theme: "dark" });
+      }
+    }
   };
 
   return (
@@ -29,7 +53,6 @@ export default function RegisterPage() {
         <h2 className="text-2xl font-bold text-center mb-6">Register</h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Name */}
           <div>
             <label className="block text-sm font-medium mb-1" htmlFor="name">
               Full Name
@@ -45,7 +68,6 @@ export default function RegisterPage() {
             />
           </div>
 
-          {/* Email */}
           <div>
             <label className="block text-sm font-medium mb-1" htmlFor="email">
               Email
@@ -61,7 +83,6 @@ export default function RegisterPage() {
             />
           </div>
 
-          {/* Password */}
           <div>
             <label
               className="block text-sm font-medium mb-1"
@@ -80,7 +101,6 @@ export default function RegisterPage() {
             />
           </div>
 
-          {/* Confirm Password */}
           <div>
             <label
               className="block text-sm font-medium mb-1"
@@ -99,7 +119,6 @@ export default function RegisterPage() {
             />
           </div>
 
-          {/* Submit */}
           <button
             type="submit"
             className="w-full bg-gray-800 text-white rounded-lg px-4 py-2 hover:bg-gray-700 transition"
@@ -108,7 +127,6 @@ export default function RegisterPage() {
           </button>
         </form>
 
-        {/* Extra Links */}
         <p className="text-sm text-gray-600 mt-4 text-center">
           Already have an account?{" "}
           <a href="/login" className="text-lime-600 hover:underline">
