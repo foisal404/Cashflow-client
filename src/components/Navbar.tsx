@@ -57,11 +57,11 @@ export default function Navbar() {
 
           {!user ? (
             <>
-              <Link href="/login" className="hover:text-lime-400">
-                Login
-              </Link>
-              <Link href="/register" className="hover:text-lime-400">
-                Register
+              <Link
+                href="/login"
+                className="text-gray-700 bg-lime-400 px-2 rounded-lg hover:bg-lime-300"
+              >
+                New Here
               </Link>
             </>
           ) : (
@@ -71,7 +71,7 @@ export default function Navbar() {
               </Link>
               <button
                 onClick={logout}
-                className="hover:text-red-400 transition"
+                className="hover:bg-red-600 bg-red-500 px-3 rounded-md transition"
               >
                 Logout
               </button>
@@ -111,14 +111,7 @@ export default function Navbar() {
                 className="block hover:text-lime-400"
                 onClick={() => setIsOpen(false)}
               >
-                Login
-              </Link>
-              <Link
-                href="/register"
-                className="block hover:text-lime-400"
-                onClick={() => setIsOpen(false)}
-              >
-                Register
+                New Here
               </Link>
             </>
           ) : (
