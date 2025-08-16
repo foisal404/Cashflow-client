@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React, { use } from "react";
 import Button from "./Button";
+import Link from "next/link";
 
 function HeroTitle() {
   return (
@@ -17,8 +18,10 @@ function HeroSection() {
       <HeroTitle />
       <div className="flex flex-col-reverse md:flex md:flex-row justify-end">
         <div className="flex gap-5 mt-10 h-fit relative lg:top-64 justify-center">
-          <Button>Get Start</Button>
-          <Button>Learn More</Button>
+          <Button>
+            <Link href="/login">Get Start</Link>
+          </Button>
+          <Link href="/login">Learn More</Link>
         </div>
         <Image src="/bgcon.png" alt="Hero Image" width={600} height={400} />
       </div>
