@@ -9,9 +9,10 @@ interface ExpencesFormProps {
     category?: string;
     date?: string;
   };
+  update?: boolean;
 }
 
-function ExpencesForm({ onSubmit, onChange, form }: ExpencesFormProps) {
+function ExpencesForm({ onSubmit, onChange, form, update }: ExpencesFormProps) {
   return (
     <>
       <form
@@ -62,7 +63,7 @@ function ExpencesForm({ onSubmit, onChange, form }: ExpencesFormProps) {
           type="submit"
           className="w-full bg-lime-600 text-white py-2 rounded hover:bg-lime-700"
         >
-          Add Expense
+          {update ? "Edit Expense" : "Add Expense"}
         </button>
       </form>
     </>
