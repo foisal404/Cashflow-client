@@ -26,7 +26,6 @@ export default function LoginPage() {
       );
 
       if (response.data.token) {
-        localStorage.setItem("token", response.data.token);
         toast("Login successful!", {
           position: "top-right",
           theme: "dark",
