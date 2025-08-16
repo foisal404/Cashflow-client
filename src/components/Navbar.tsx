@@ -51,7 +51,7 @@ export default function Navbar() {
           <Link href="/" className="hover:text-lime-400">
             Home
           </Link>
-          <Link href="/learn-more" className="hover:text-lime-400">
+          <Link href="#" className="hover:text-lime-400">
             Learn More
           </Link>
 

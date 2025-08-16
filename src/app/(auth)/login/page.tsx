@@ -18,6 +18,7 @@ export default function LoginPage() {
       console.error("Email and password are required");
       return;
     }
+    console.log(process.env.NEXT_PUBLIC_API_URL);
     try {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`,
