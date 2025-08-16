@@ -21,7 +21,9 @@ function HeroSection() {
           <Button>
             <Link href="/login">Get Start</Link>
           </Button>
-          <Link href="/login">Learn More</Link>
+          <Button>
+            <Link href="/login">Learn More</Link>
+          </Button>
         </div>
         <Image src="/bgcon.png" alt="Hero Image" width={600} height={400} />
       </div>
