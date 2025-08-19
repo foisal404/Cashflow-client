@@ -10,7 +10,7 @@
         },
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "https://your-express-app.render.com"
+          "value": "https://cashflow-server-s751.onrender.com"
         },
         {
           "key": "Access-Control-Allow-Methods",
